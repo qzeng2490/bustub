@@ -80,6 +80,8 @@ class LRUKReplacer {
   [[maybe_unused]] size_t replacer_size_;
   [[maybe_unused]] size_t k_;
   [[maybe_unused]] std::mutex latch_;
+  std::unordered_map<frame_id_t, std::list<size_t>> access_history_;
+  std::unordered_map<frame_id_t, bool> evictable_;
 };
 
 }  // namespace bustub
